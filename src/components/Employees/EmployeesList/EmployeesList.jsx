@@ -34,24 +34,28 @@ const alfabet = [
 const EmployeesList = React.memo(
   ({ activeUsers, activateUser, deactivateUser }) => {
     return (
-      <div className="empl__list">
-        {alfabet.map((letter) => (
-          <EmployeesSection
-            key={letter}
-            letter={letter}
-            activeUsers={activeUsers}
-            activateUser={activateUser}
-            deactivateUser={deactivateUser}
-          />
-        ))}
+      <div className="empl">
+        <h2 className="header">Employees</h2>
+        <div className="empl__list">
+          {alfabet.map((letter) => (
+            <EmployeesSection
+              key={letter}
+              letter={letter}
+              activeUsers={activeUsers}
+              activateUser={activateUser}
+              deactivateUser={deactivateUser}
+            />
+          ))}
       </div>
+      </div>
+
     );
   }
 );
 
 EmployeesList.displayName = 'EmployeesList';
 EmployeesList.propTypes = {
-  activeUsers: PropTypes.instanceOf(Set),
+  activeUsers: PropTypes.array,
   activateUser: PropTypes.func,
   deactivateUser: PropTypes.func,
 };

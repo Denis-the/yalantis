@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import EmployeesList from "./EmployeesList/EmployeesList";
+import EmployeesDOB from "./EmployeesDOB/EmployeesDOB";
 
 const Employees = ({ activeUsers, activateUser, deactivateUser }) => {
   return (
@@ -10,13 +11,16 @@ const Employees = ({ activeUsers, activateUser, deactivateUser }) => {
         activateUser={activateUser}
         deactivateUser={deactivateUser}
       />
+      <EmployeesDOB
+        activeUsers={activeUsers}
+      />
     </div>
   );
 };
 
 Employees.displayName = "Employees";
 Employees.propTypes = {
-  activeUsers: PropTypes.instanceOf(Set),
+  activeUsers: PropTypes.array,
   activateUser: PropTypes.func,
   deactivateUser: PropTypes.func,
 };

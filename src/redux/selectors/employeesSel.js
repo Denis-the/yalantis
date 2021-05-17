@@ -21,6 +21,6 @@ export const getActiveUsers = createSelector(
   getSortedByLastNameUsers,
   getActiveUsersId,
   (users, activeUsersId) => {
-    return new Set(users.filter((user) => activeUsersId.has(user.id)));
+    return users.filter((user) => activeUsersId.has(user.id));
   }
 );

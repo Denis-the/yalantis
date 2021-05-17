@@ -19,7 +19,7 @@ const EmployeesSection = React.memo(
                 user={u}
                 activateUser={activateUser}
                 deactivateUser={deactivateUser}
-                isActive={activeUsers.has(u)}
+                isActive={activeUsers.find(item => item === u) ? true : false}
               />
             ))
           : "-----"}
@@ -39,7 +39,7 @@ EmployeesSection.propTypes = {
       );
     }
   },
-  activeUsers: PropTypes.instanceOf(Set),
+  activeUsers: PropTypes.array,
   activateUser: PropTypes.func,
   deactivateUser: PropTypes.func,
 };
