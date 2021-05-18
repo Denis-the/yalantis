@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { monthNames } from "../../../utils/monthses";
 
-const EmployeesDOBUser = ({ user }) => {
+const EmployeesDOBUser = React.memo(({ user }) => {
   const rawDate = new Date(user.dob);
   const formattedDate = `${rawDate.getDate()} ${monthNames[rawDate.getMonth()]} 
             ${rawDate.getFullYear()} year`;
@@ -11,7 +11,7 @@ const EmployeesDOBUser = ({ user }) => {
       {user.lastName} {user.firstName} - {formattedDate}
     </li>
   );
-};
+});
 
 EmployeesDOBUser.displayName = "EmployeesDOBUser";
 EmployeesDOBUser.propTypes = {

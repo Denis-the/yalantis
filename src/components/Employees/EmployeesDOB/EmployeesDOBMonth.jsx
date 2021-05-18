@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import EmployeesDOBUser from "./EmployeesDOBUser";
 
-const EmployeesDOBMonth = ({ monthName, users }) => {
+const EmployeesDOBMonth = React.memo(({ monthName, users }) => {
   if (users.length === 0) return null;
   return (
     <div className="birthdays__section">
@@ -14,7 +14,7 @@ const EmployeesDOBMonth = ({ monthName, users }) => {
       </ul>
     </div>
   );
-};
+});
 
 EmployeesDOBMonth.displayName = "EmployeesDOBMonth";
 EmployeesDOBMonth.propTypes = {
