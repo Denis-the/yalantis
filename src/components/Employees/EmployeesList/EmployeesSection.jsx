@@ -1,7 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { getSortedUsersFiltratedByLetterCreator } from "../../../redux/selectors/employeesSel";
-import PropTypes from "prop-types";
 import EmployeesItem from "./EmployeesItem";
 
 const EmployeesSection = React.memo(
@@ -19,7 +19,7 @@ const EmployeesSection = React.memo(
                 user={u}
                 activateUser={activateUser}
                 deactivateUser={deactivateUser}
-                isActive={activeUsers.find(item => item === u) ? true : false}
+                isActive={activeUsers.find(item => item === u) || false}
               />
             ))
           : "-----"}
@@ -30,18 +30,17 @@ const EmployeesSection = React.memo(
 
 EmployeesSection.displayName = "EmployeesSection";
 EmployeesSection.propTypes = {
-  letter: function (props, propName, componentName) {
-    if (typeof props.letter !== "string" || props.letter.length !== 1) {
+ letter: (({letter}, propName) => {
+    if (typeof letter !== "string" || letter.length !== 1) {
       return new Error(
-        "Invalid prop `" +
-          propName +
-          "` of component `EmployeesSection`, expected string with length = 1"
+        `Invalid prop "${propName}" of component "EmployeesSection", expected string with length = 1`
       );
     }
-  },
-  activeUsers: PropTypes.array,
-  activateUser: PropTypes.func,
-  deactivateUser: PropTypes.func,
+    return null;
+  }).isRequired,
+  activeUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activateUser: PropTypes.func.isRequired,
+  deactivateUser: PropTypes.func.isRequired,
 };
 
 export default EmployeesSection;

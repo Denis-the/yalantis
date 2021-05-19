@@ -7,27 +7,23 @@ const EmployeesContainer = React.lazy(() =>
   import("./components/Employees/EmployeesContainer")
 );
 
-const App = () => {
-  return (
-    <div className="App">
-      <Suspense fallback={<div>loading...</div>}>
-        <Switch>
-          <Route path="/employees" render={() => <EmployeesContainer />} />
-          <Route render={() => <Redirect to='/employees'/>} />
-        </Switch>
-      </Suspense>
-    </div>
-  );
-};
+const App = () => (
+  <div className="App">
+    <Suspense fallback={<div>loading...</div>}>
+      <Switch>
+        <Route path="/employees" render={() => <EmployeesContainer />} />
+        <Route render={() => <Redirect to="/employees" />} />
+      </Switch>
+    </Suspense>
+  </div>
+);
 
-const ConnectedApp = () => {
-  return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  );
-};
+const ConnectedApp = () => (
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
+);
 
 export default ConnectedApp;

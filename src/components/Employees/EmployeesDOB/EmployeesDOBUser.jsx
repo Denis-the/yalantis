@@ -20,7 +20,7 @@ EmployeesDOBUser.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     dob: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default EmployeesDOBUser;

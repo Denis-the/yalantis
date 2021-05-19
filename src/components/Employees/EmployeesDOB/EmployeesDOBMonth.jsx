@@ -18,8 +18,8 @@ const EmployeesDOBMonth = React.memo(({ monthName, users }) => {
 
 EmployeesDOBMonth.displayName = "EmployeesDOBMonth";
 EmployeesDOBMonth.propTypes = {
-  monthName: PropTypes.string,
-  users: PropTypes.array,
+  monthName: PropTypes.string.isRequired,
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default EmployeesDOBMonth;

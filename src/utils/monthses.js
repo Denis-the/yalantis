@@ -2,10 +2,10 @@
 export const getMonthOrder = () => {
     const monthOrder = [];
     const currentMonth = new Date().getMonth();
-    for (let i = currentMonth; i < 12; i++) {
+    for (let i = currentMonth; i < 12; i+=1) {
       monthOrder.push(i);
     }
-    for (let i = 0; i < currentMonth; i++) {
+    for (let i = 0; i < currentMonth; i+=1) {
       monthOrder.push(i);
     }
     return monthOrder;

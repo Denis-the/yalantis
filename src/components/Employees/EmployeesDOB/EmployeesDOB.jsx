@@ -5,8 +5,7 @@ import { getMonthOrder, monthNames } from "../../../utils/monthses";
 
 const monthOrder = getMonthOrder();
 
-const EmployeesDOB = React.memo(({ activeUsers }) => {
-  return (
+const EmployeesDOB = React.memo(({ activeUsers }) => (
     <div className="birthdays__container">
       <h2 className="header">Employees birthday</h2>
       {activeUsers.length === 0 ? (
@@ -25,12 +24,11 @@ const EmployeesDOB = React.memo(({ activeUsers }) => {
         </div>
       )}
     </div>
-  );
-});
+));
 
 EmployeesDOB.displayName = "EmployeesDOB";
 EmployeesDOB.propTypes = {
-  activeUsers: PropTypes.array,
+  activeUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default EmployeesDOB;
