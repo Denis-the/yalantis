@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import EmployeesList from "./EmployeesList/EmployeesList";
 import EmployeesDOB from "./EmployeesDOB/EmployeesDOB";
+import { usersArrPropType } from "../../utils/employeesPropTypes";
 
 const Employees = ({ activeUsers, activateUser, deactivateUser }) => (
   <div className="empl__container">
@@ -16,7 +17,7 @@ const Employees = ({ activeUsers, activateUser, deactivateUser }) => (
 
 Employees.displayName = "Employees";
 Employees.propTypes = {
-  activeUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeUsers: usersArrPropType.isRequired,
   activateUser: PropTypes.func.isRequired,
   deactivateUser: PropTypes.func.isRequired,
 };

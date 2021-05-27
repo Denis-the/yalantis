@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import EmployeesDOBUser from "./EmployeesDOBUser";
+import { usersArrPropType } from "../../../utils/employeesPropTypes";
 
 const EmployeesDOBMonth = React.memo(({ monthName, users }) => {
   if (users.length === 0) return null;
@@ -19,7 +20,7 @@ const EmployeesDOBMonth = React.memo(({ monthName, users }) => {
 EmployeesDOBMonth.displayName = "EmployeesDOBMonth";
 EmployeesDOBMonth.propTypes = {
   monthName: PropTypes.string.isRequired,
-  users: PropTypes.arrayOf(PropTypes.object).isRequired,
+  users: usersArrPropType.isRequired,
 };
 
 export default EmployeesDOBMonth;

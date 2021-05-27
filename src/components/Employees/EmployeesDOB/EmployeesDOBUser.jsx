@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { monthNames } from "../../../utils/monthses";
+import { userPropType } from "../../../utils/employeesPropTypes";
 
 const EmployeesDOBUser = React.memo(({ user }) => {
   const rawDate = new Date(user.dob);
@@ -15,12 +15,7 @@ const EmployeesDOBUser = React.memo(({ user }) => {
 
 EmployeesDOBUser.displayName = "EmployeesDOBUser";
 EmployeesDOBUser.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    dob: PropTypes.string,
-  }).isRequired,
+  user: userPropType.isRequired,
 };
 
 export default EmployeesDOBUser;

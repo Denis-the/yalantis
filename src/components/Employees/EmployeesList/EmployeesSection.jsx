@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { getSortedUsersFiltratedByLetterCreator } from "../../../redux/selectors/employeesSel";
 import EmployeesItem from "./EmployeesItem";
+import { usersArrPropType, letterPropType } from "../../../utils/employeesPropTypes";
+
 
 const EmployeesSection = React.memo(
   ({ letter, activeUsers, activateUser, deactivateUser }) => {
@@ -19,7 +21,7 @@ const EmployeesSection = React.memo(
                 user={u}
                 activateUser={activateUser}
                 deactivateUser={deactivateUser}
-                isActive={activeUsers.find(item => item === u) || false}
+                isActive={activeUsers.includes(u) || false}
               />
             ))
           : "-----"}
@@ -29,16 +31,13 @@ const EmployeesSection = React.memo(
 );
 
 EmployeesSection.displayName = "EmployeesSection";
+EmployeesSection.defaultProps = {
+  letter: null,
+}
+
 EmployeesSection.propTypes = {
- letter: (({letter}, propName) => {
-    if (typeof letter !== "string" || letter.length !== 1) {
-      return new Error(
-        `Invalid prop "${propName}" of component "EmployeesSection", expected string with length = 1`
-      );
-    }
-    return null;
-  }).isRequired,
-  activeUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  letter: letterPropType,
+  activeUsers: usersArrPropType.isRequired,
   activateUser: PropTypes.func.isRequired,
   deactivateUser: PropTypes.func.isRequired,
 };

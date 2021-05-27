@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { userPropType } from "../../../utils/employeesPropTypes";
 
 const EmployeesItem = React.memo(
   ({ user, activateUser, deactivateUser, isActive }) => (
@@ -39,12 +40,7 @@ const EmployeesItem = React.memo(
 
 EmployeesItem.displayName = "EmployeesItem";
 EmployeesItem.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    dob: PropTypes.string,
-  }).isRequired,
+  user: userPropType.isRequired,
   activateUser: PropTypes.func.isRequired,
   deactivateUser: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,

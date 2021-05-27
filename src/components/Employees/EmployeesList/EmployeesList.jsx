@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import EmployeesSection from "./EmployeesSection";
+import { usersArrPropType } from "../../../utils/employeesPropTypes";
 
 const alfabet = [
   "A",
@@ -52,7 +53,7 @@ const EmployeesList = React.memo(
 
 EmployeesList.displayName = "EmployeesList";
 EmployeesList.propTypes = {
-  activeUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeUsers: usersArrPropType.isRequired,
   activateUser: PropTypes.func.isRequired,
   deactivateUser: PropTypes.func.isRequired,
 };
