@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import store from "./redux/store";
 
 const EmployeesContainer = React.lazy(() =>
@@ -19,11 +19,11 @@ const App = () => (
 );
 
 const ConnectedApp = () => (
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <HashRouter>
     <Provider store={store}>
       <App />
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default ConnectedApp;

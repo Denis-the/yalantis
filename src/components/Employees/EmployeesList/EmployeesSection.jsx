@@ -21,7 +21,7 @@ const EmployeesSection = React.memo(
                 user={u}
                 activateUser={activateUser}
                 deactivateUser={deactivateUser}
-                isActive={activeUsers.includes(u) || false}
+                isActive={activeUsers.includes(u)}
               />
             ))
           : "-----"}
